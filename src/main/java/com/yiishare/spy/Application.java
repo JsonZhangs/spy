@@ -162,6 +162,7 @@ public class Application implements CommandLineRunner {
                 logger.debug("开始时间：" + DateUtil.getCurrentTimeString());
                 domainSpyService.findValidDomain(domainName);
                 logger.debug("new line");
+                
             }
             catch (Exception e) {
                 logger.error(e);
