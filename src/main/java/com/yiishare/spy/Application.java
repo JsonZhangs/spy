@@ -13,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import com.yiishare.spy.service.api.IDomainSpyService;
+import com.yiishare.spy.utils.DateUtil;
 
 /**
  * <Description> <br>
@@ -158,7 +159,7 @@ public class Application implements CommandLineRunner {
         @Override
         public void run() {
             try {
-                logger.debug("new line");
+                logger.debug("开始时间：" + DateUtil.getCurrentTimeString());
                 domainSpyService.findValidDomain(domainName);
                 logger.debug("new line");
             }
