@@ -94,4 +94,10 @@ public class DomainSpyService implements IDomainSpyService {
 
     }
 
+    @Override
+    public ValidDomain findValidDomain(String url, String name) throws Exception {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }

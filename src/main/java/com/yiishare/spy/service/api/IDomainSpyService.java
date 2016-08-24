@@ -26,4 +26,16 @@ public interface IDomainSpyService {
      * @exception Exception if has exception
      */
     public ValidDomain findValidDomain(String name) throws Exception;
+    
+    /**
+     * 
+     * 指定域名商的接口地址对指定的域名进行查询 <br> 
+     *  
+     * @author zhang.zhigao<br>
+     * @param url 接口地址
+     * @param name 域名
+     * @return ValidDomain
+     * @throws Exception if has error <br>
+     */
+    public ValidDomain findValidDomain(String url, String name) throws Exception;
 }
