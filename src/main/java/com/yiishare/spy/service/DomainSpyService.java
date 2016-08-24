@@ -96,7 +96,20 @@ public class DomainSpyService implements IDomainSpyService {
 
     @Override
     public ValidDomain findValidDomain(String url, String name) throws Exception {
-        // TODO Auto-generated method stub
+        url = "http://checkdomain.xinnet.com/domainCheck?callbackparam=jQuery17203990228981646726_"
+            + DateUtil.getCurrentTimeLong() + "&searchRandom=6&prefix="
+            + name + "&suffix=.com&_=" + (DateUtil.getCurrentTimeLong() + 5);
+        // 得到正文内容
+        Document document = Jsoup.parse(getHtml(url));
+        String result = document.html();
+        if (null != result && !result.isEmpty() && result.contains("\"no\":[]")) {
+            ValidDomain validDomain = new ValidDomain();
+            validDomain.setDomainId(ObjectId.get().toHexString());
+            validDomain.setCreateDate(DateUtil.getCurrentTimeString());
+            validDomain.setName(name);
+            logger.info(name);
+            validDomainRepository.save(validDomain);
+        }
         return null;
     }
 
