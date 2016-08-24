@@ -158,7 +158,9 @@ public class Application implements CommandLineRunner {
         @Override
         public void run() {
             try {
+                logger.debug("new line");
                 domainSpyService.findValidDomain(domainName);
+                logger.debug("new line");
             }
             catch (Exception e) {
                 logger.error(e);
