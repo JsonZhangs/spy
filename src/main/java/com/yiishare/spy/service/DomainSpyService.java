@@ -96,7 +96,15 @@ public class DomainSpyService implements IDomainSpyService {
 
     @Override
     public ValidDomain findValidDomain(String url, String name) throws Exception {
-        // TODO Auto-generated method stub
+        Document document = Jsoup.parse(getHtml(url));
+        String result = document.html();
+        if (null != result && !result.isEmpty() && result.contains("\"no\":[]")) {
+            ValidDomain validDomain = new ValidDomain();
+            validDomain.setDomainId(ObjectId.get().toHexString());
+            validDomain.setCreateDate(DateUtil.getCurrentTimeString());
+            validDomain.setName(name);
+            logger.info(name);
+        }
         return null;
     }
 
